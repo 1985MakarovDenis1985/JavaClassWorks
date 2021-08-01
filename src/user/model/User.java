@@ -14,78 +14,112 @@ public class User {
     }
 
     public void setPassword(String password) {
-        if(validatePassword(password)) {
+        if (validatePassword(password)) {
             this.password = password;
-            System.out.println("Ok!");
-        }
-        else {
-            System.out.println("pass" + " => is not valid");
+//            System.out.println("Ok!");
+        } else {
+//            System.out.println("pass" + " => is not valid");
         }
     }
 
 
+    // MY SOLUTION > =====================================
 
-    // my solution >
-    private boolean isCorrectUpper(String pass){
-        for (int i = 0; i < pass.length(); i++) {
-            char ch = pass.charAt(i);
-            if (Character.isUpperCase(ch))
+    // first solution
+    private boolean validatePassword(String password) {
+
+        boolean[] err = {false, false, false, false, false};
+
+        if (!(password.length() < 8)) {
+            err[0] = true;
+        }
+
+        for (int i = 0; i < password.length(); i++) {
+            char ch = password.charAt(i);
+            if (Character.isUpperCase(ch)){
+                err[1] = true;
+            }
+            if (Character.isLowerCase(ch)){
+                err[2] = true;
+            }
+            if (Character.isDigit(ch)){
+                err[3] = true;
+            }
+            if (ch == '_' || ch == '-' || ch == '.' || ch == '%' || ch == '@' || ch == '!'){
+                err[4] = true;
+            }
+
+        }
+        if (err[0] == true && err[1] == true && err[2] == true && err[3] == true && err[4] == true ){
             return true;
         }
         return false;
     }
-    private boolean isCorrectDig(String pass){
-        for (int i = 0; i < pass.length(); i++) {
-            char ch = pass.charAt(i);
-            if (Character.isLowerCase(ch))
-                return true;
-        }
-        return false;
-    }
-    private boolean isCorrectLower(String pass){
-        for (int i = 0; i < pass.length(); i++) {
-            char ch = pass.charAt(i);
-            if (Character.isDigit(ch))
-                return true;
-        }
-        return false;
-    }
-    private boolean isCorrectSymbol(String pass){
-        for (int i = 0; i < pass.length(); i++) {
-            char ch = pass.charAt(i);
-            if (ch == '_' || ch == '-' || ch == '.' || ch == '%' || ch == '@' || ch == '!'){
-                return true;
-            }
-        }
-        return false;
-    }
+
+//    first solution
+//    private boolean isCorrectUpper(String pass){
+//        for (int i = 0; i < pass.length(); i++) {
+//            char ch = pass.charAt(i);
+//            if (Character.isUpperCase(ch))
+//            return true;
+//        }
+//        return false;
+//    }
+//    private boolean isCorrectDig(String pass){
+//        for (int i = 0; i < pass.length(); i++) {
+//            char ch = pass.charAt(i);
+//            if (Character.isLowerCase(ch))
+//                return true;
+//        }
+//        return false;
+//    }
+//    private boolean isCorrectLower(String pass){
+//        for (int i = 0; i < pass.length(); i++) {
+//            char ch = pass.charAt(i);
+//            if (Character.isDigit(ch))
+//                return true;
+//        }
+//        return false;
+//    }
+//    private boolean isCorrectSymbol(String pass){
+//        for (int i = 0; i < pass.length(); i++) {
+//            char ch = pass.charAt(i);
+//            if (ch == '_' || ch == '-' || ch == '.' || ch == '%' || ch == '@' || ch == '!'){
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    private boolean validatePassword(String password) {
+//
+//        if(password.length() < 8) {
+//            return false;
+//        }
+//
+//        if (!isCorrectUpper(password)){
+//            return false;
+//        }
+//
+//        if (!isCorrectLower(password)){
+//            return false;
+//        }
+//
+//        if (!isCorrectDig(password)){
+//            return false;
+//        }
+//
+//        if (!isCorrectSymbol(password)){
+//            return false;
+//        }
+//
+//        return true;
+//    }
+
+    // my solution < =====================================
 
 
-    private boolean validatePassword(String password) {
 
-        if(password.length() < 8) {
-            return false;
-        }
-
-        if (!isCorrectUpper(password)){
-            return false;
-        }
-
-        if (!isCorrectLower(password)){
-            return false;
-        }
-
-        if (!isCorrectDig(password)){
-            return false;
-        }
-
-        if (!isCorrectSymbol(password)){
-            return false;
-        }
-
-        return true;
-    }
-    // my solution <
 
 
     public void setEmail(String email) {
@@ -119,9 +153,6 @@ public class User {
         }
         return true;
     }
-
-
-
 
 
     public String getPassword() {

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import user.model.User;
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserAppTest {
+class UserTest {
 
     User user;
     String email = "peter@mail.ru";
@@ -17,48 +17,48 @@ class UserAppTest {
         user = new User(email, password);
     }
 
-//    @Test
-//    void testCorrectEmail() {
-//        String expected = "peter@mail.ru";
-//        user.setEmail("peter@mail.ru");
-//        assertEquals(expected, user.getEmail());
-//    }
-//
-//
-//    @Test
-//    void testWithoutAt() {
-//        user.setEmail("peter.mail.ru");
-//        assertEquals(email, user.getEmail());
-//    }
-//
-//    //
-//    @Test
-//    void testDoubletAt() {
-//        user.setEmail("peter@ma@il.com");
-//        assertEquals(email, user.getEmail());
-//    }
-//
-//    @Test
-//    void testDotAfterAt() {
-//        user.setEmail("peter@ma@ilru");
-//        assertEquals(email, user.getEmail());
-//    }
-//
-//    @Test
-//    void testLastDot() {
-//        user.setEmail("peter@ma@ilr.u");
-//        assertEquals(email, user.getEmail());
-//        user.setEmail("peter@ma@ilru.");
-//        assertEquals(email, user.getEmail());
-//    }
-//
-//    @Test
-//    void testIncorrectSymbol() {
-//        user.setEmail("pet!er@ma@ilr.u");
-//        assertEquals(email, user.getEmail());
-//    }
+    @Test
+    void testCorrectEmail() {
+        String expected = "peter@mail.ru";
+        user.setEmail("peter@mail.ru");
+        assertEquals(expected, user.getEmail());
+    }
 
-    // =============================
+
+    @Test
+    void testWithoutAt() {
+        user.setEmail("peter.mail.ru");
+        assertEquals(email, user.getEmail());
+    }
+
+    //
+    @Test
+    void testDoubletAt() {
+        user.setEmail("peter@ma@il.com");
+        assertEquals(email, user.getEmail());
+    }
+
+    @Test
+    void testDotAfterAt() {
+        user.setEmail("peter@ma@ilru");
+        assertEquals(email, user.getEmail());
+    }
+
+    @Test
+    void testLastDot() {
+        user.setEmail("peter@ma@ilr.u");
+        assertEquals(email, user.getEmail());
+        user.setEmail("peter@ma@ilru.");
+        assertEquals(email, user.getEmail());
+    }
+
+    @Test
+    void testIncorrectSymbol() {
+        user.setEmail("pet!er@ma@ilr.u");
+        assertEquals(email, user.getEmail());
+    }
+
+    // ============= password ================
 
     @Test
     void testCorrectPassword() {
@@ -66,13 +66,10 @@ class UserAppTest {
         user.setPassword(inCorrectPassword);
         assertEquals(inCorrectPassword, user.getPassword());
     }
-//
-//
+
     @Test
     void testPasswordLength() {
-        user.setPassword("23");
-//        System.out.println("inCorrectPassword: " + password);
-//        System.out.println("real: " + user.getPassword());
+        user.setPassword("23b45");
         assertEquals(password, user.getPassword());
     }
 
