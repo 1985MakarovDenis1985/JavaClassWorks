@@ -50,7 +50,7 @@ public class User {
             }
 
         }
-        if (err[0] == true && err[1] == true && err[2] == true && err[3] == true && err[4] == true ){
+        if (err[0] && err[1] && err[2] && err[3] && err[4] ){
             return true;
         }
         return false;
