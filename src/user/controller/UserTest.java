@@ -69,7 +69,7 @@ class UserTest {
 
     @Test
     void testPasswordLength() {
-        user.setPassword("23b45");
+        user.setPassword("23b456");
         assertEquals(password, user.getPassword());
     }
 

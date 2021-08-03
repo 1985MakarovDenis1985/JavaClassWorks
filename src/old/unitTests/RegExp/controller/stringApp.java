@@ -1,6 +1,4 @@
-package controller;
-
-import java.util.Locale;
+package old.unitTests.RegExp.controller;
 
 public class stringApp {
 

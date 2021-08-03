@@ -6,7 +6,7 @@ public class UserApp {
 
     public static void main(String[] args) {
         User user = new User("peter@gmail.com", "23b456Ab!");
-        user.setPassword("2we"); // почему покказывает ок???
+        user.setPassword("2wekjk"); // почему покказывает ок???
         System.out.println(user.getPassword());
 
 
