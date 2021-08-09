@@ -59,11 +59,10 @@ public class Company implements ICompany {
         return size;
     }
 
-
-    @Override
-    public double avgSalary() {
-        return totalSalary() / size;
-    }
+//    @Override // ===========> default in interface
+//    public double avgSalary() {
+//        return totalSalary() / size;
+//    }
 
     @Override
     public double totalSales() {
