@@ -15,7 +15,7 @@ public class MyListApp {
         myList.add("New York");
         myList.add("Chicago");
         myList.add("Washington");
-//        myList.add(null);
+        myList.add(null);
         myList.add("Detroit");
 
 //        System.out.println(myList.size());
@@ -33,14 +33,17 @@ public class MyListApp {
 //        myList.add(2, "Vegas");
 
         myList.add(3, "Las Vegas");
-        myList.remove(0);
+//        myList.remove(0);
 
         Iterator<String> iterator = myList.iterator();
         while (iterator.hasNext()){
             String el = iterator.next();
-            if (el.equals("Washington")){
-                iterator.remove();
+            if (el == null){
+                el = iterator.next();
             }
+//            if (el.equals("Washington")){
+//                iterator.remove();
+//            }
         }
 
         for (int i = 0; i < myList.size(); i++) {

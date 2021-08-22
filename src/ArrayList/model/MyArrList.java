@@ -12,7 +12,7 @@ public class MyArrList<E> implements IList<E> {
 
     public MyArrList() {
         this(10); // принимает нижний конструктор
-//        elementData = new Object[10];
+        /* elementData = new Object[10] */
     }
 
     public MyArrList(int initialCapacity) {
@@ -157,36 +157,4 @@ public class MyArrList<E> implements IList<E> {
             }
         };
     }
-
-//    private StringBuilder str;
-//    private int currPos;
-//    private int size;
-
-//    public MyStringIterator(StringBuilder str) {
-//        this.str = str;
-//        currPos = 0;
-//        size = str.length();
-//    }
-//
-//    @Override
-//    public boolean hasNext() {
-//        return currPos < size;
-//    }
-//
-//    @Override
-//    public Character next() {
-//        Character current = str.charAt(currPos);
-//        currPos++;
-//        return current;
-//    }
-//
-//    @Override
-//    public void remove(){
-//        str.deleteCharAt(--currPos); // переставили позицию
-////        str.deleteCharAt(currPos - 1);
-////        currPos--;
-//        size--; // сократили размер
-//    }
-
-
 }
