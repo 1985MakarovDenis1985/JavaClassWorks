@@ -1,7 +1,7 @@
-package ArrayList.controller;
+package myArrayList.controller;
 
-import ArrayList.interfaces.IList;
-import ArrayList.model.MyArrList;
+import myArrayList.interfaces.IList;
+import myArrayList.model.MyArrList;
 
 import java.util.Iterator;
 
@@ -28,6 +28,8 @@ public class MyListApp {
 //        System.out.println(myList.contains(null));
 //        System.out.println(myList.lastIndexOf("Detroit"));
 
+        myList.add(myList.size(), "Montana");
+
 //        myList.set(1, "Montana");
 //        myList.add(2, "Las");
 //        myList.add(2, "Vegas");
@@ -35,7 +37,7 @@ public class MyListApp {
         myList.add(3, "Las Vegas");
 //        myList.remove(0);
 
-        Iterator<String> iterator = myList.iterator();
+        Iterator<String> iterator = myList.iterator(); // одноразовый -> всегда нужно заново создавать что бы итерировать
         while (iterator.hasNext()){
             String el = iterator.next();
             if (el == null){
@@ -46,8 +48,8 @@ public class MyListApp {
 //            }
         }
 
-        for (int i = 0; i < myList.size(); i++) {
-            System.out.println(myList.get(i));
+        for (String str : myList) {
+            System.out.println(str);
         }
     }
 }

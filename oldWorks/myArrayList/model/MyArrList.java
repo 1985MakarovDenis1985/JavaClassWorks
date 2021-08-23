@@ -1,6 +1,6 @@
-package ArrayList.model;
+package myArrayList.model;
 
-import ArrayList.interfaces.IList;
+import myArrayList.interfaces.IList;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -132,12 +132,15 @@ public class MyArrList<E> implements IList<E> {
 
     @Override
     public void clear() {
-
+        for (int i = 0; i < size; i++) {
+            elementData[i] = null;
+        }
+        size = 0;
     }
 
     @Override
-    public Iterator<E> iterator() {
-        return new Iterator<E>() {
+    public Iterator <E> iterator() {
+        return new Iterator<E>() { // анонимный класс
             int currPos = 0;
 
             @Override

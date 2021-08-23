@@ -1,6 +1,6 @@
-package ArrayList.interfaces;
+package myLinkedList.model;
 
-public interface IList <E> extends Iterable<E> {
+public interface ILinkedList<E> extends Iterable <E>{
     int size();
     default boolean isEmpty(){
         return size() == 0;
@@ -24,4 +24,5 @@ public interface IList <E> extends Iterable<E> {
         return true;
     };
     void clear();
+
 }
