@@ -15,11 +15,12 @@ public class MyKinkedListApp {
 //        myList.add(null);
         myList.add("Detroit");
 
-        System.out.println("0 el : " + myList.get(0));
-//        myList.set(1, "Montana");
+        //        myList.set(1, "Montana");
 //        System.out.println(myList.get(1));
-        myList.add(6, "Las Vegas");
-//        myList.add(3, "By");
+        myList.add(0, "--- first ---");
+        myList.add(4, "--- middle ---");
+        myList.add(8, "--- last ---");
+        myList.add(8, "--- Prev ---");
 
         System.out.println("===== Iterator =====");
         Iterator<String> iterator = myList.iterator(); // одноразовый -> всегда нужно заново создавать что бы итерировать

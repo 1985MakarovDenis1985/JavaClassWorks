@@ -3,7 +3,6 @@ package myLinkedList.model;
 import java.util.Iterator;
 
 public class MyLinkedList<E> implements ILinkedList<E> {
-
     private Node<E> first;
     private Node<E> last;
     private int size;
@@ -96,37 +95,22 @@ public class MyLinkedList<E> implements ILinkedList<E> {
 
     @Override
     public boolean add(int index, E element) {
-//        Node<E> nextEl = getNodeByIndex(index);
-        Node<E> newNode = new Node(last, element, null);
-
         if (index == size) {
             add(element);
-        }
-        else if (index < size) {
-            Node<E> nextEl = getNodeByIndex(index);
-            Node<E> prevEl = getNodeByIndex(index - 1);
-
-            if (index == 0){
-//                Node<E> nextEl = getNodeByIndex(index);
-                nextEl.prev = newNode;
-                System.out.println("0 : -> " + nextEl.prev.element);
-                newNode.next = nextEl;
-                System.out.println("next : " + newNode.next.element);
-                first = newNode;
+        } else {
+            Node<E> newNode = new Node<>(last, element, null);
+            Node<E> startEl = getNodeByIndex(index);
+            if (index != 0) {
+                newNode.prev = startEl.prev;
+                startEl.prev.next = newNode;
+                startEl.prev = newNode;
+                newNode.next = startEl;
             } else {
-                prevEl.next = newNode;
-                newNode.prev = prevEl;
-                nextEl.prev = newNode;
-                newNode.next = nextEl;
+                startEl.prev = newNode;
+                newNode.next = startEl;
+                first = newNode;
             }
-
             size++;
-
-        }
-
-        if (index == 0){
-
-
         }
         return true;
     }
@@ -182,10 +166,10 @@ public class MyLinkedList<E> implements ILinkedList<E> {
                 return el;
             }
 
-            @Override
-            public void remove() {
-                MyLinkedList.this.remove(--currPos);
-            }
+//            @Override
+//            public void remove() {
+//                MyLinkedList.this.remove(--currPos);
+//            }
         };
     }
 
