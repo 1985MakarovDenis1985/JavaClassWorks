@@ -4,6 +4,7 @@ import interfaces.ISet;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 public class MyHashSet<E> implements ISet<E> {
 
@@ -90,31 +91,17 @@ public class MyHashSet<E> implements ISet<E> {
         return size;
     }
 
+
     @Override
     public Iterator<E> iterator() {
-
-        return new Iterator<E>() { // анонимный класс
-            int currPos = 0;
-
-            @Override
-            public boolean hasNext() {
-                return currPos < hashset.length-1;
-            }
-
-            @Override
-            public E next() {
-                LinkedList<E> el = hashset[currPos];
-                if (el == null){
-                    el = (LinkedList<E>) hashset[currPos+1];
-                    System.out.println(";lk;lk");
-
-                    currPos++;
-
+        LinkedList<E> newLinkedList = new LinkedList<>();
+        for (int i = 0; i < hashset.length; i++) {
+            if (hashset[i] != null){
+                for (int j = 0; j < hashset[i].size(); j++) {
+                    newLinkedList.add(hashset[i].get(j));
                 }
-
-                currPos++;
-                return null;
             }
-        };
+        }
+        return newLinkedList.iterator();
     }
 }
