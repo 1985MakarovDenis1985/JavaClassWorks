@@ -1,5 +1,7 @@
 package myLinkedList.model;
 
+import myLinkedList.interfaces.ILinkedList;
+
 import java.util.Iterator;
 
 public class MyLinkedList<E> implements ILinkedList<E> {
@@ -76,7 +78,6 @@ public class MyLinkedList<E> implements ILinkedList<E> {
         Node<E> node = getNodeByIndex(index);
         E temp = node.element;
         node.element = element;
-        System.out.println("ad: " + node.prev.element);
         return temp;
     }
 
@@ -166,10 +167,10 @@ public class MyLinkedList<E> implements ILinkedList<E> {
                 return el;
             }
 
-//            @Override
-//            public void remove() {
-//                MyLinkedList.this.remove(--currPos);
-//            }
+            @Override
+            public void remove() {
+                MyLinkedList.this.remove(--currPos);
+            }
         };
     }
 

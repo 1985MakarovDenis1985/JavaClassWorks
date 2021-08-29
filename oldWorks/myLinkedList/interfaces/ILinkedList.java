@@ -1,4 +1,4 @@
-package myLinkedList.model;
+package myLinkedList.interfaces;
 
 public interface ILinkedList<E> extends Iterable <E>{
     int size();

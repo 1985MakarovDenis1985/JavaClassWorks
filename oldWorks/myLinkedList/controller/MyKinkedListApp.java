@@ -1,4 +1,7 @@
-package myLinkedList.model;
+package myLinkedList.controller;
+
+import myLinkedList.interfaces.ILinkedList;
+import myLinkedList.model.MyLinkedList;
 
 import java.util.Iterator;
 
