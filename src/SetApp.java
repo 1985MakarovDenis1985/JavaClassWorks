@@ -9,7 +9,7 @@ import model.MyHashSet;
 public class SetApp {
 
     public static void main(String[] args) {
-        ISet<Integer> hs = new MyHashSet<>();
+        ISet<Integer> hs = new MyHashSet<>(8, 1);
         hs.add(2);
         hs.add(3);
         hs.add(5);

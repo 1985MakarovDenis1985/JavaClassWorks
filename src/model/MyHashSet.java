@@ -24,7 +24,7 @@ public class MyHashSet<E> implements ISet<E> {
     }
 
     public MyHashSet() {
-        this(16);
+        this(8);
     }
 
     @Override
@@ -94,14 +94,30 @@ public class MyHashSet<E> implements ISet<E> {
 
     @Override
     public Iterator<E> iterator() {
-        LinkedList<E> newLinkedList = new LinkedList<>();
-        for (int i = 0; i < hashset.length; i++) {
-            if (hashset[i] != null){
-                for (int j = 0; j < hashset[i].size(); j++) {
-                    newLinkedList.add(hashset[i].get(j));
-                }
+        return new Iterator<E>() {
+            private int indexArray;
+            private int indexList;
+            int count = 0;
+            @Override
+            public boolean hasNext() {
+                return count < size;
             }
-        }
-        return newLinkedList.iterator();
+
+            @Override
+            public E next() {
+                while (hashset[indexArray] == null || hashset[indexArray].isEmpty()) {
+                    indexArray++;
+                }
+                E res = hashset[indexArray].get(indexList);
+                count++;
+                if (indexList < hashset[indexArray].size() - 1){
+                    indexList++;
+                }else {
+                    indexArray++;
+                    indexList = 0;
+                }
+                return res;
+            }
+        };
     }
 }
